@@ -114,3 +114,12 @@ class player:
             self.specialMove(enemy1Health, specialAttack)
 
         return enemy1Health
+
+    # def addInventory(self):
+
+    
+    # def removeInventory(self):
+
+
+    # def equip(self):
+        
