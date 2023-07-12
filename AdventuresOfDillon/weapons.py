@@ -33,8 +33,33 @@ class weapon:
         elif weapon.location == "BossBuilding":
             return 5
         
-    def rarityCalc(weapon, playerLuck):
-        luckNum = playerLuck/5
+    def rarityCalc(weapon, playerLuck, isHidden):
+        luckNum = playerLuck/10 
+        placeNum = weapon.locationChecker()
+        if isHidden:
+            endNum = luckNum + placeNum + 1
+        else:
+            endNum = luckNum + placeNum
+
+        if endNum < 3:
+            #Common
+            return "Common"
+
+        elif endNum < 6:
+            #Uncommon
+            return "Uncommon"
+        
+        elif endNum < 9:
+            #Rare
+            return "Rare"
+        
+        elif endNum < 12:
+            #Epic
+            return "Epic"
+        
+        else:
+            #Legendary
+            return "Legendary"
         
 
 
