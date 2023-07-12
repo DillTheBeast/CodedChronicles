@@ -1,4 +1,5 @@
 from random import randint
+import msvcrt
 
 class location:
     def __init__(location, name, difficulty, itemSpawnRate):
@@ -30,7 +31,10 @@ class room:
         return f"Name: {room.name}, Temperature: {room.temp}, Height: {room.height}, Length: {room.length}"
     
 
-    def roomGen():
-        rows, cols = (5, 5)
+    def roomGen(room):
+        rows, cols = (7, 7)
         print("The o will represent you and the x represents the enemy. Move around to find the hidden items")
-        room = [['_'] * cols]*rows
+        roomPic = [['_'] * cols]*rows
+        for y in room.height:
+            for x in room.length:
+                print(roomPic[x][y])
