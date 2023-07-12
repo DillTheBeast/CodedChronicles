@@ -10,10 +10,10 @@ answer2 = False
 specialAttack = False
 blockGameWinner = False
 
-sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start")
-staff = wepawn.weapon("Starter Staff", "Staff", 7, 100, None, False, "Starter", "Start")
-dagger = wepawn.weapon("Starter Dagger", "Dagger", 7, 100, None, False, "Starter", "Start")
-bow = wepawn.weapon("Starter Bow", "Bow", 7, 100, None, False, "Starter", "Start")
+sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start", False)
+staff = wepawn.weapon("Starter Staff", "Staff", 7, 100, None, False, "Starter", "Start", False)
+dagger = wepawn.weapon("Starter Dagger", "Dagger", 7, 100, None, False, "Starter", "Start", False)
+bow = wepawn.weapon("Starter Bow", "Bow", 7, 100, None, False, "Starter", "Start", False)
 
 print('Welcome to the Adventures of Dillon. First we need you to pick a class.')
 print('The classes are Berserk: Where you get a sword that does 30 damage, 5 speed, and an ability that lets you deal 2x damage for 3 turns.')
