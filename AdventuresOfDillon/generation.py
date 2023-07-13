@@ -6,15 +6,17 @@ import numpy as np
 
 def findLocations(room, player, weapons, items):
     room.roomGen(player, weapons, items)
-    enemyLocation = [np.array([[x,y]])]
+    all_coordinates = np.zeros((room.height, room.length))
 
     for y in range(room.height):
         for x in range(room.length):
-            if(room.roomPic[x][y] == "x "):
-                enemyLocation.append(int(room.roomPic[x][y]))
+            if(room.roomPic[y][x] == "x "):
+                enemyLocation = [np.array([[x,y]])]
+                
 
-    print(enemyLocation)
-    return enemyLocation
+    all_coordinates = np.vstack((all_coordinates, enemyLocation))
+    print(all_coordinates)
+    return all_coordinates
 
 
 #def generateItems(room, player, weapons, items, enemyLocation):
