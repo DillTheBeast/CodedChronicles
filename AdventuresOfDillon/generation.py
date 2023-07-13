@@ -5,19 +5,7 @@ import weapons as wepawn
 import numpy as np
 
 def findLocations(room, player, weapons, items):
-    room.roomGen(player, weapons, items)
-    all_coordinates = np.zeros((room.height, room.length))
-
-    for y in range(room.height):
-        for x in range(room.length):
-            if(room.roomPic[y][x] == "x "):
-                enemyLocation = [np.array([[x,y]])]
-                
-
-    all_coordinates = np.vstack((all_coordinates, enemyLocation))
-    print(all_coordinates)
-    return all_coordinates
-
+    
 
 #def generateItems(room, player, weapons, items, enemyLocation):
         # for i in range(enemyLocation):

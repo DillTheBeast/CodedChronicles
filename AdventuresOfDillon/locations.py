@@ -1,5 +1,8 @@
 from random import randint
 import numpy as np
+import player as playa
+import enemy1 as bigboypants
+import weapons as wepawn
 
 class location:
     def __init__(location, name, difficulty, itemSpawnRate):
@@ -34,18 +37,23 @@ class room:
     
 
     def roomGen(room, player, weapons, items):
+        enemyLocation = []
         print("The o will represent you and the x represents the enemy. Move around to find the hidden items")
 
         room.roomPic = np.full((room.height, room.length), "_ ")
-
-        for enemy in range(room.enemyCount):
-            enemyX = randint(0, room.length-1)
-            enemyY = randint(0, room.height-1)
-            room.roomPic[enemyY, enemyX] = "x "
 
         room.roomPic[0, 0] = player.playerLook()
 
         print('\n'.join([' '.join(row) for row in room.roomPic]))
 
         return room.roomPic
+    
+    def enemyGen(room, enemy1, ):
 
+# roomPic = []
+# sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start", False)
+# player = playa.player("Berserk", "GO BERSERK", 5, 30, sword, 160, None)
+# items = "asdasdasdasd"
+# room1 = room("Beach1", 90, 7, 7, 4, roomPic)
+
+# room1.roomGen(player, sword, items)
