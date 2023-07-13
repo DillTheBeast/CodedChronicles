@@ -1,3 +1,5 @@
+#Give enemies classes + specials
+
 from random import randint
 import player as playa
 import enemy1 as bigboypants
