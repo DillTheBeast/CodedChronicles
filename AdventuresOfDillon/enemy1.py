@@ -67,3 +67,7 @@ class enemy1:
             print("You are at", playerHealth, "health")
 
         return playerHealth
+    
+
+    def enemyLook(enemy):
+        return "x "
