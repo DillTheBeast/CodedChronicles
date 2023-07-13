@@ -114,6 +114,9 @@ class player:
             self.specialMove(enemy1Health, specialAttack)
 
         return enemy1Health
+    
+    def playerLook(self):
+        return "o "
 
     # def addInventory(self):
 
