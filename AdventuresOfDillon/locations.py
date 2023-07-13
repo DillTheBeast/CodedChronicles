@@ -50,12 +50,17 @@ class room:
     
     def enemyGen(room, enemy, roomPic):
         enemyLocation = []
-        for enemy in range(room.enemyCount):
-            enemyX = randint(0, room.length-1)
-            enemyY = randint(0, room.height-1)
-            room.roomPic[enemyX, enemyY] = enemy.enemyLook()
-            enemyLocation.append(enemyX)
-            enemyLocation.append(enemyY)
+        found = False
+        for enemies in range(room.enemyCount):
+            found = False
+            while found == False:
+                enemyX = randint(0, room.length-1)
+                enemyY = randint(0, room.height-1)
+                if not enemyX == 0 and not enemyY == 0:
+                    room.roomPic[enemyX, enemyY] = enemy.enemyLook()
+                    found = True
+                enemyLocation.append(enemyX)
+                enemyLocation.append(enemyY)
         return enemyLocation
 
 roomPic = []
