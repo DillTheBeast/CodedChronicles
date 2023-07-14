@@ -1,4 +1,5 @@
 from random import randint
+import numpy as np
 
 class player:
     def __init__(self, Class, ability, speed, damage, weapon, health, location):
@@ -194,6 +195,11 @@ class player:
                 print('This will put the food in the inventory')
 
 
-    def inventory(self, generateItems, allItems):
-        
+    def inventory(self):
+        #Need to make a 2d array
+        inventory = np.full((16, 16), "_ ")
+        print('\n'.join([' '.join(row) for row in inventory]))
+
+self1 = player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
+self1.inventory()
         
