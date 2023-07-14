@@ -116,13 +116,82 @@ class player:
         return enemy1Health
     
     def playerLook(self):
+
         return "o "
-
-    # def addInventory(self):
-
-    
-    # def removeInventory(self):
 
 
     # def equip(self):
+
+    def pickUp(self, generateItems, allItems):
+        chose = False
+        correct = False
+        weaponMain = False
+        weaponIn = False
+        food = False
+        armorMain = False
+        armorIn = False
+        if generateItems == False:
+            return
+        
+        else:
+            while correct == False:
+                for x in range(len(allItems)):
+                    if generateItems == allItems[x]:
+                        pickedItem = allItems[x]
+                        correct = True
+
+            print("You picked up", pickedItem.name)
+            while chose == False:
+                if not pickedItem.damage == 0:
+                    #Has to be weapon
+                    ans = int(input("Would you like to add", pickedItem.name, "to be your main weapon. \nIf so press 1 and if not press 2\n"))
+                    if input == 1:
+                        print("The weapon you obtained has been made your main weapon")
+                        weaponMain = True
+                        chose = True
+                    elif input == 2:
+                        print("The weapon you obtained has been added to your inventory")
+                        weaponIn = True
+                        chose = True
+                    else:
+                        print("This is not an option")
+                
+                elif not pickedItem.protection == 0:
+                    #Has to be an armor piece
+                    ans = int(input("Would you like to add", pickedItem.name, "to be your main armor piece in the given spot. \nIf so press 1 and if not press 2\n"))
+                    if input == 1:
+                        print("The armor piece you obtained has been made your main armor piece in the named area")
+                        armorMain = True
+                        chose = True
+                    elif input == 2:
+                        print("The armor piece you obtained has been added to your inventory")
+                        armorIn = True
+                        chose = True
+                    else:
+                        print("This is not an option")
+
+                else:
+                    #Has to be food
+                    print("The", pickedItem.name, "that you got has been added to your inventory")
+                    food = True
+                    chose = True
+
+            
+            if weaponMain:
+                #Make weapon main
+                print('This will make the weapon the main weapon')
+            elif weaponIn:
+                #Put weapon in inventory
+                print('This will put the weapon in the inventory')
+            elif armorMain:
+                #Make armor main
+
+            elif armorIn:
+                #Put armor in inventory
+
+            elif food:
+                #Put food in inventory
+
+
+    def inventory
         

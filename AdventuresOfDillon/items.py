@@ -1,5 +1,5 @@
 class item:
-    def __init__(item, name, function, amount, durability, damage, protection, health):
+    def __init__(item, name, function, amount, durability, damage, protection, health, isHidden):
         item.name = name
         item.function = function
         item.amount = amount
@@ -7,6 +7,7 @@ class item:
         item.damage = damage
         item.protection = protection
         item.health = health
+        item.isHidden = isHidden
 
 
     def __str__(item):
