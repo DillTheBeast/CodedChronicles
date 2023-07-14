@@ -185,13 +185,15 @@ class player:
                 print('This will put the weapon in the inventory')
             elif armorMain:
                 #Make armor main
-
+                print('This will make the armor the main armor piece for that slot')
             elif armorIn:
                 #Put armor in inventory
-
+                print('This will put the armor in the inventory')
             elif food:
                 #Put food in inventory
+                print('This will put the food in the inventory')
 
 
-    def inventory
+    def inventory(self, generateItems, allItems):
+        
         
