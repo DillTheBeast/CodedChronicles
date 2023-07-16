@@ -132,7 +132,7 @@ class player:
         armorMain = False
         armorIn = False
         if generateItems == False:
-            return
+            return None
         
         else:
             while correct == False:
@@ -181,23 +181,89 @@ class player:
             if weaponMain:
                 #Make weapon main
                 print('This will make the weapon the main weapon')
+                return 0
             elif weaponIn:
                 #Put weapon in inventory
                 print('This will put the weapon in the inventory')
+                return 1
             elif armorMain:
                 #Make armor main
                 print('This will make the armor the main armor piece for that slot')
+                return 2
             elif armorIn:
                 #Put armor in inventory
                 print('This will put the armor in the inventory')
+                return 3
             elif food:
                 #Put food in inventory
                 print('This will put the food in the inventory')
+                return 4
 
+
+    def sortItem(self, items, allItems, generateItems):
+        space = False
+        correct = False
+        if generateItems == False:
+            return None
+        
+        else:
+            while correct == False:
+                for x in range(len(allItems)):
+                    if generateItems == allItems[x]:
+                        pickedItem = allItems[x]
+                        correct = True
+
+        inventoryPart = self.pickUp(generateItems, allItems)
+
+        if inventoryPart == 1:
+            #Weapon in inventory
+            #Need to go from 1,0 to 2,10
+            for y in range(2):
+                for x in range(22):
+                    if(allItems[y, x] == "_ "):
+                        #Spot is open
+                        space = True
+
+        elif inventoryPart == 3:
+            #Armor in inventory
+            #Need to go from 3,0 to 5,10
+            for y in range(3):
+                for x in range(33):
+                    if(allItems[y, x] == "_ "):
+                        #Spot is open
+                        space = True
+            
+        elif inventoryPart == 4:
+            #Food in inventory
+            #Need to go from 6,0 to 7,10
+            for y in range(2):
+                for x in range(22):
+                    if(allItems[y, x] == "_ "):
+                        #Spot is open
+                        space = True
+
+        elif inventoryPart == 0: 
+            #Weapon in hotbar
+            #Need to check main weapon
+            print("Later")
+
+        elif inventoryPart == 2:
+            #Armor in hotbar
+            #Need to check main armor in given spot
+            print("Later")
+
+        else:
+            return None
 
     def inventory(self):
         #Need to make a 2d array
-        inventory = np.full((16, 16), "_ ")
+        print("Row 1 is for your hotbar")
+        print("Rows 2 and 3 are for weapons")
+        print("Rows 4, 5, and 6 are for armor")
+        print("Rows 7 and 8 are for food\n")
+        print("[Inventory]")
+
+        inventory = np.full((8, 10), "_ ")
         print('\n'.join([' '.join(row) for row in inventory]))
 
 self1 = player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)

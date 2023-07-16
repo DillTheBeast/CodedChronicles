@@ -146,16 +146,37 @@ def itemList(items):
     goldBoots = ight.item("Gold Boots", "Protection", 1, 100, 0, 20, 0, False, "GB ")
     diamondBoots = ight.item("Diamond Boots", "Protection", 1, 100, 0, 40, 0, True, "DB ")
 
-    allItems.append(sword1, sword2)
-    allItems.append(staff1, staff2)
-    allItems.append(dagger1, dagger2)
-    allItems.append(bow1, bow2)
-    allItems.append(food, potion)
-    allItems.append(ironHelm, goldHelm)
-    allItems.append(ironChest, goldChest)
-    allItems.append(ironLeg, goldLeg)
-    allItems.append(ironBoots, goldBoots)
-    allItems.append(sword3, staff3, dagger3, bow3, cookedFood, diamondHelm, diamondChest, diamondLeg, diamondBoots)
+    allItems.append(sword1)
+    allItems.append(sword2)
+    allItems.append(staff1)
+    allItems.append(staff2)
+    allItems.append(dagger1)
+    allItems.append(dagger2)
+    allItems.append(bow1)
+    allItems.append(bow2)
+    allItems.append(food)
+    allItems.append(potion)
+    allItems.append(ironHelm)
+    allItems.append(goldHelm)
+    allItems.append(ironChest)
+    allItems.append(goldChest)
+    allItems.append(ironLeg)
+    allItems.append(goldLeg)
+    allItems.append(ironBoots)
+    allItems.append(goldBoots)
+    allItems.append(sword3)
+    allItems.append(staff3)
+    allItems.append(dagger3)
+    allItems.append(bow3)
+    allItems.append(cookedFood)
+    allItems.append(diamondHelm)
+    allItems.append(diamondChest)
+    allItems.append(diamondLeg)
+    allItems.append(diamondBoots)
+
+
+    for i in range(len(allItems)):
+        print(allItems[i])
 
     return allItems
 
@@ -163,4 +184,4 @@ sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", 
 player = playa.player("Berserk", "GO BERSERK", 5, 30, sword, 160, None)
 items = "as"
 arr = []
-room1 = laca.room("beach", 90, 7, 7, 4, arr)
+itemList(items)
