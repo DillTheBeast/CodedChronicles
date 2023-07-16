@@ -110,41 +110,41 @@ def generateItems(room, player, weapons, items, enemyLocation, roomPic, enemy, a
 def itemList(items):
     allItems = []
     #Swords
-    sword1 = ight.item("Sword1", "weapon", 1, 100, 50, 0, 0, False)
-    sword2 = ight.item("Sword2", "weapon", 1, 100, 100, 0, 0, False)
-    sword3 = ight.item("Sword3", "weapon", 1, 100, 200, 0, 0, True)
+    sword1 = ight.item("Sword1", "weapon", 1, 100, 50, 0, 0, False, "SW1")
+    sword2 = ight.item("Sword2", "weapon", 1, 100, 100, 0, 0, False, "SW2")
+    sword3 = ight.item("Sword3", "weapon", 1, 100, 200, 0, 0, True, "Sw3")
     #Staffs
-    staff1 = ight.item("Staff1", "weapon", 1, 100, 40, 0, 0, False)
-    staff2 = ight.item("Staff2", "weapon", 1, 100, 80, 0, 0, False)
-    staff3 = ight.item("Staff3", "weapon", 1, 100, 160, 0, 0, True)
+    staff1 = ight.item("Staff1", "weapon", 1, 100, 40, 0, 0, False, "ST1")
+    staff2 = ight.item("Staff2", "weapon", 1, 100, 80, 0, 0, False, "ST2")
+    staff3 = ight.item("Staff3", "weapon", 1, 100, 160, 0, 0, True, "ST3")
     #Daggers
-    dagger1 = ight.item("Dagger1", "weapon", 1, 100, 20, 0, 0, False)
-    dagger2 = ight.item("Dagger2", "weapon", 1, 100, 40, 0, 0, False)
-    dagger3 = ight.item("Dagger3", "weapon", 1, 100, 80, 0, 0, True)
+    dagger1 = ight.item("Dagger1", "weapon", 1, 100, 20, 0, 0, False, "D1 ")
+    dagger2 = ight.item("Dagger2", "weapon", 1, 100, 40, 0, 0, False, "D2 ")
+    dagger3 = ight.item("Dagger3", "weapon", 1, 100, 80, 0, 0, True, "D3 ")
     #Bows
-    bow1 = ight.item("Bow1", "weapon", 1, 100, 30, 0, 0, False)
-    bow2 = ight.item("Bow2", "weapon", 1, 100, 60, 0, 0, False)
-    bow3 = ight.item("Bow3", "weapon", 1, 100, 90, 0, 0, True)
+    bow1 = ight.item("Bow1", "weapon", 1, 100, 30, 0, 0, False, "B1 ")
+    bow2 = ight.item("Bow2", "weapon", 1, 100, 60, 0, 0, False, "B2 ")
+    bow3 = ight.item("Bow3", "weapon", 1, 100, 90, 0, 0, True, "B3 ")
     #Heals
-    food = ight.item("Raw Food", "Heal", 5, 1, 0, 0, 20, False)
-    potion = ight.item("Potion", "Heal", 5, 1, 0, 0, 50, False)
-    cookedFood = ight.item("Cooked Food", "Heal", 5, 1, 0, 0, 80, True)
+    food = ight.item("Raw Food", "Heal", 5, 1, 0, 0, 20, False, " F ")
+    potion = ight.item("Potion", "Heal", 5, 1, 0, 0, 50, False, " P ")
+    cookedFood = ight.item("Cooked Food", "Heal", 5, 1, 0, 0, 80, True, "CF ")
     #Helmets
-    ironHelm = ight.item("Iron Helmet", "Protection", 1, 100, 0, 20, 0, False)
-    goldHelm = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False)
-    diamondHelm = ight.item("Diamond Helmet", "Protection", 1, 100, 0, 80, 0, True)
+    ironHelm = ight.item("Iron Helmet", "Protection", 1, 100, 0, 20, 0, False, "IH ")
+    goldHelm = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH ")
+    diamondHelm = ight.item("Diamond Helmet", "Protection", 1, 100, 0, 80, 0, True, "DH ")
     #Chestplates
-    ironChest = ight.item("Iron Chestplate", "Protection", 1, 100, 0, 40, 0, False)
-    goldChest = ight.item("Gold Chestplate", "Protection", 1, 100, 0, 80, 0, False)
-    diamondChest = ight.item("Diamond Chestplate", "Protection", 1, 100, 0, 160, 0, True)
+    ironChest = ight.item("Iron Chestplate", "Protection", 1, 100, 0, 40, 0, False, "IC ")
+    goldChest = ight.item("Gold Chestplate", "Protection", 1, 100, 0, 80, 0, False, "GC ")
+    diamondChest = ight.item("Diamond Chestplate", "Protection", 1, 100, 0, 160, 0, True, "DC ")
     #Leggings
-    ironLeg = ight.item("Iron Leggings", "Protection", 1, 100, 0, 30, 0, False)
-    goldLeg = ight.item("Gold Leggings", "Protection", 1, 100, 0, 60, 0, False)
-    diamondLeg = ight.item("Diamond Leggings", "Protection", 1, 100, 0, 120, 0, True)
+    ironLeg = ight.item("Iron Leggings", "Protection", 1, 100, 0, 30, 0, False, "IL ")
+    goldLeg = ight.item("Gold Leggings", "Protection", 1, 100, 0, 60, 0, False, "GL ")
+    diamondLeg = ight.item("Diamond Leggings", "Protection", 1, 100, 0, 120, 0, True, "DL ")
     #Boots
-    ironBoots = ight.item("Iron Boots", "Protection", 1, 100, 0, 10, 0, False)
-    goldBoots = ight.item("Gold Boots", "Protection", 1, 100, 0, 20, 0, False)
-    diamondBoots = ight.item("Diamond Boots", "Protection", 1, 100, 0, 40, 0, True)
+    ironBoots = ight.item("Iron Boots", "Protection", 1, 100, 0, 10, 0, False, "IB ")
+    goldBoots = ight.item("Gold Boots", "Protection", 1, 100, 0, 20, 0, False, "GB ")
+    diamondBoots = ight.item("Diamond Boots", "Protection", 1, 100, 0, 40, 0, True, "DB ")
 
     allItems.append(sword1, sword2)
     allItems.append(staff1, staff2)
