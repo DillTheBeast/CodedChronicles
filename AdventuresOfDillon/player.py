@@ -251,7 +251,9 @@ class player:
             #Weapon in hotbar
             #Need to check main weapon
             #Weapon goes into 0,0
-            print("Later")
+            if allItems[0, 0] == '_ ':
+                space = True
+                spot = allItems[0, 0]
 
         elif inventoryPart == 2:
             #Armor in hotbar
