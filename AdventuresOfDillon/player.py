@@ -214,9 +214,10 @@ class player:
                 print('This will put the food your hotbar')
                 return 5
 
-    def sortItem(self, items, allItems, generateItems):
+    def sortItem(self, items, allItems, generateItems, inventory):
         space = False
         correct = False
+        inventoryCheck = False
         if generateItems == False:
             return None
         
@@ -234,55 +235,78 @@ class player:
             #Need to go from 1,0 to 2,10
             y = 2
             x = 22
+            inventoryCheck = True
 
         elif inventoryPart == 3:
             #Armor in inventory
             #Need to go from 3,0 to 5,10
             y = 3
             x = 33
+            inventoryCheck = True
             
         elif inventoryPart == 4:
             #Food in inventory
             #Need to go from 6,0 to 7,10
             y = 2
             x = 22
+            inventoryCheck = True
 
         elif inventoryPart == 0: 
             #Weapon in hotbar
             #Need to check main weapon
             #Weapon goes into 0,0
-            if allItems[0, 0] == '_ ':
-                space = True
-                spot = allItems[0, 0]
+            if inventory[0][0] == '_ ':
+                return 0, 0
 
         elif inventoryPart == 2:
             #Armor in hotbar
             #Need to check main armor in given spot
             #Check which armor piece
             #Helmet = 0, 1 Chest = 0,2 Leg = 0,3 Boot = 0,4
-            print("Later")
+            if pickedItem.function == "Helmet":
+                if inventory[0][1] == '_ ':
+                    return 0, 1
+
+            elif pickedItem.function == "Chestplate":
+                if inventory[0][2] == '_ ':
+                    return 0, 2
+
+            elif pickedItem.function == "Leggings":
+                if inventory[0][3] == '_ ':
+                    return 0, 3
+
+            elif pickedItem.function == "Boots":
+                if inventory[0][4] == '_ ':
+                    return 0, 4
+            
 
         elif inventoryPart == 5:
             #Food in hotbar
             #Need to check main food slots
             #Food goes from 0,5 to 0,9
-            print('Later')
+            i = 5
+            y = 0
+            for x in range(i):
+                y = x
+                x = x + 5
+                if inventory[0][x] == '_ ':
+                    return 0, x
+                x = y + 1
+
+            inventoryCheck = True
 
         else:
             return None
         
-        for i in range(y):
-            for j in range(x):
-                if(allItems[y, x] == "_ "):
-                    #Spot is open
-                    space = True
-                    spot = allItems[i, j]
+        if inventoryCheck:
+            for i in range(y):
+                for j in range(x):
+                    if(inventory[y][x] == "_ "):
+                        #Spot is open
+                        return i, j
         
-        if space:
-            return spot
-        
-        else:
-            return 1
+        return 1
+                    
 
     def inventory(self, item):
         #Need to make a 2d array
@@ -302,6 +326,7 @@ class player:
             print()
 
         #print(inventory[1][1].protection)
+        return inventory
 
 self1 = player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
 item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")

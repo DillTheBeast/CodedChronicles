@@ -130,21 +130,21 @@ def itemList(items):
     potion = ight.item("Potion", "Heal", 5, 1, 0, 0, 50, False, " PN ")
     cookedFood = ight.item("Cooked Food", "Heal", 5, 1, 0, 0, 80, True, "CF")
     #Helmets
-    ironHelm = ight.item("Iron Helmet", "Protection", 1, 100, 0, 20, 0, False, "IH")
-    goldHelm = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
-    diamondHelm = ight.item("Diamond Helmet", "Protection", 1, 100, 0, 80, 0, True, "DH")
+    ironHelm = ight.item("Iron Helmet", "Helmet", 1, 100, 0, 20, 0, False, "IH")
+    goldHelm = ight.item("Gold Helmet", "Helmet", 1, 100, 0, 40, 0, False, "GH")
+    diamondHelm = ight.item("Diamond Helmet", "Helmet", 1, 100, 0, 80, 0, True, "DH")
     #Chestplates
-    ironChest = ight.item("Iron Chestplate", "Protection", 1, 100, 0, 40, 0, False, "IC")
-    goldChest = ight.item("Gold Chestplate", "Protection", 1, 100, 0, 80, 0, False, "GC")
-    diamondChest = ight.item("Diamond Chestplate", "Protection", 1, 100, 0, 160, 0, True, "DC")
+    ironChest = ight.item("Iron Chestplate", "Chestplate", 1, 100, 0, 40, 0, False, "IC")
+    goldChest = ight.item("Gold Chestplate", "Chestplate", 1, 100, 0, 80, 0, False, "GC")
+    diamondChest = ight.item("Diamond Chestplate", "Chestplate", 1, 100, 0, 160, 0, True, "DC")
     #Leggings
-    ironLeg = ight.item("Iron Leggings", "Protection", 1, 100, 0, 30, 0, False, "IL")
-    goldLeg = ight.item("Gold Leggings", "Protection", 1, 100, 0, 60, 0, False, "GL")
-    diamondLeg = ight.item("Diamond Leggings", "Protection", 1, 100, 0, 120, 0, True, "DL")
+    ironLeg = ight.item("Iron Leggings", "Leggings", 1, 100, 0, 30, 0, False, "IL")
+    goldLeg = ight.item("Gold Leggings", "Leggings", 1, 100, 0, 60, 0, False, "GL")
+    diamondLeg = ight.item("Diamond Leggings", "Leggings", 1, 100, 0, 120, 0, True, "DL")
     #Boots
-    ironBoots = ight.item("Iron Boots", "Protection", 1, 100, 0, 10, 0, False, "IB")
-    goldBoots = ight.item("Gold Boots", "Protection", 1, 100, 0, 20, 0, False, "GB")
-    diamondBoots = ight.item("Diamond Boots", "Protection", 1, 100, 0, 40, 0, True, "DB")
+    ironBoots = ight.item("Iron Boots", "Boots", 1, 100, 0, 10, 0, False, "IB")
+    goldBoots = ight.item("Gold Boots", "Boots", 1, 100, 0, 20, 0, False, "GB")
+    diamondBoots = ight.item("Diamond Boots", "Boots", 1, 100, 0, 40, 0, True, "DB")
 
     allItems.append(axe1)
     allItems.append(axe2)
