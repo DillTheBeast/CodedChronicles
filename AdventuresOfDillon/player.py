@@ -308,7 +308,7 @@ class player:
         return 1
                     
 
-    def inventory(self, item):
+    def inventory(self, item, allItems, generateItems):
         #Need to make a 2d array
         print("Row 1 is for your hotbar")
         print("Rows 2 and 3 are for weapons")
@@ -316,6 +316,11 @@ class player:
         print("Rows 7 and 8 are for food\n")
         print("[Inventory]")
         inventory = [[' ']*10 for i in range(8)]
+        # if self.sortItem(item, allItems, generateItems, inventory) == 1:
+        #     #No spot available
+        # else:
+        thing = self.sortItem(item, allItems, generateItems, inventory)
+        print(thing)
         inventory[1][2] = item
         for row in inventory:
             for item in row:
@@ -330,5 +335,8 @@ class player:
 
 self1 = player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
 item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
-self1.inventory(item)
+# thing = self1.sortItem(item, allItems, generateItems, inventory)
+# print(thing)
+#self1.inventory(item)
+
         
