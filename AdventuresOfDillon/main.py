@@ -16,13 +16,13 @@ blockGameWinner = False
 Lost = False
 
 while Lost == False:
-    sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start", False)
+    sword = wepawn.weapon("Starter Axe", "Axe", 7, 100, None, False, "Starter", "Start", False)
     staff = wepawn.weapon("Starter Staff", "Staff", 7, 100, None, False, "Starter", "Start", False)
     dagger = wepawn.weapon("Starter Dagger", "Dagger", 7, 100, None, False, "Starter", "Start", False)
     bow = wepawn.weapon("Starter Bow", "Bow", 7, 100, None, False, "Starter", "Start", False)
 
     print('Welcome to the Adventures of Dillon. First we need you to pick a class.')
-    print('The classes are Berserk: Where you get a sword that does 30 damage, 5 speed, and an ability that lets you deal 2x damage for 3 turns.')
+    print('The classes are Berserk: Where you get an axe that does 30 damage, 5 speed, and an ability that lets you deal 2x damage for 3 turns.')
     print('Mage: Where you get a staff that does 25 damage, 10 speed, and an ability that lets you set the enemy on fire, dealing 5 damage until either them or you are dead.')
     print('Rogue: Where you get a dagger that does 15 damage, 45 speed, and an ability that lets you dodge the enemy attacks')
     print('Archer: Where you get a bow that does 20 damage, 8 speed, and an ability that lets you shot 2 arrows at once with your bow fully charged back')
@@ -59,7 +59,7 @@ while Lost == False:
                 if enemy1.blockGame():
                     #Player won
                     enemy1.health -= 30
-                    print("The enemy has been hit for 30 damage and is not at", enemy1.health)
+                    print("The enemy has been hit for 30 damage and is now at", enemy1.health)
                     blockGameWinner = True
                 else:
                     #Player lost

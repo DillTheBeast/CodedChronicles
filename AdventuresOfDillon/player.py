@@ -1,5 +1,6 @@
 from random import randint
 import numpy as np
+import items as ight
 
 class player:
     def __init__(self, Class, ability, speed, damage, weapon, health, location):
@@ -131,6 +132,8 @@ class player:
         food = False
         armorMain = False
         armorIn = False
+        foodMain = False
+        foodIn = False
         if generateItems == False:
             return None
         
@@ -173,9 +176,17 @@ class player:
 
                 else:
                     #Has to be food
-                    print("The", pickedItem.name, "that you got has been added to your inventory")
-                    food = True
-                    chose = True
+                    ans = int(input("Would you like to add", pickedItem.name, "to be your a food in your hotbar. \nIf so press 1 and if not press 2\n"))
+                    if input == 1:
+                        print("The food you obtained has been put in your hotbar")
+                        foodMain = True
+                        chose = True
+                    elif input == 2:
+                        print("The armor piece you obtained has been added to your inventory")
+                        foodIn = True
+                        chose = True
+                    else:
+                        print("This is not an option")
 
             
             if weaponMain:
@@ -194,11 +205,14 @@ class player:
                 #Put armor in inventory
                 print('This will put the armor in the inventory')
                 return 3
-            elif food:
+            elif foodIn:
                 #Put food in inventory
                 print('This will put the food in the inventory')
                 return 4
-
+            elif foodMain:
+                #Put food in hotbar
+                print('This will put the food your hotbar')
+                return 5
 
     def sortItem(self, items, allItems, generateItems):
         space = False
@@ -218,54 +232,76 @@ class player:
         if inventoryPart == 1:
             #Weapon in inventory
             #Need to go from 1,0 to 2,10
-            for y in range(2):
-                for x in range(22):
-                    if(allItems[y, x] == "_ "):
-                        #Spot is open
-                        space = True
+            y = 2
+            x = 22
 
         elif inventoryPart == 3:
             #Armor in inventory
             #Need to go from 3,0 to 5,10
-            for y in range(3):
-                for x in range(33):
-                    if(allItems[y, x] == "_ "):
-                        #Spot is open
-                        space = True
+            y = 3
+            x = 33
             
         elif inventoryPart == 4:
             #Food in inventory
             #Need to go from 6,0 to 7,10
-            for y in range(2):
-                for x in range(22):
-                    if(allItems[y, x] == "_ "):
-                        #Spot is open
-                        space = True
+            y = 2
+            x = 22
 
         elif inventoryPart == 0: 
             #Weapon in hotbar
             #Need to check main weapon
+            #Weapon goes into 0,0
             print("Later")
 
         elif inventoryPart == 2:
             #Armor in hotbar
             #Need to check main armor in given spot
+            #Check which armor piece
+            #Helmet = 0, 1 Chest = 0,2 Leg = 0,3 Boot = 0,4
             print("Later")
+
+        elif inventoryPart == 5:
+            #Food in hotbar
+            #Need to check main food slots
+            #Food goes from 0,5 to 0,9
+            print('Later')
 
         else:
             return None
+        
+        for i in range(y):
+            for j in range(x):
+                if(allItems[y, x] == "_ "):
+                    #Spot is open
+                    space = True
+                    spot = allItems[i, j]
+        
+        if space:
+            return spot
+        
+        else:
+            return 1
 
-    def inventory(self):
+    def inventory(self, item):
         #Need to make a 2d array
         print("Row 1 is for your hotbar")
         print("Rows 2 and 3 are for weapons")
         print("Rows 4, 5, and 6 are for armor")
         print("Rows 7 and 8 are for food\n")
         print("[Inventory]")
+        inventory = [[' ']*10 for i in range(8)]
+        inventory[1][2] = item
+        for row in inventory:
+            for item in row:
+                if isinstance(item, str):
+                    print(item, end='_ ')
+                else:
+                    print(item.rp, end=' ')  # or whatever attribute you want to display
+            print()
 
-        inventory = np.full((8, 10), "_ ")
-        print('\n'.join([' '.join(row) for row in inventory]))
+        #print(inventory[1][1].protection)
 
 self1 = player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
-self1.inventory()
+item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
+self1.inventory(item)
         

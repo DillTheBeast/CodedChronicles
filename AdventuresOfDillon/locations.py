@@ -64,7 +64,7 @@ class room:
         return enemyLocation
 
 roomPic = []
-sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start", False)
+sword = wepawn.weapon("Starter Axe", "Axe", 7, 100, None, False, "Starter", "Start", False)
 player = playa.player("Berserk", "GO BERSERK", 5, 30, sword, 160, None)
 items = "asdasdasdasd"
 room1 = room("Beach1", 90, 7, 7, 4, roomPic)
