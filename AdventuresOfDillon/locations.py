@@ -42,6 +42,8 @@ class room:
 
         # Place the player in the room
         room.roomPic[0][0] = player.playerLook()
+        playerLocX = 0
+        playerLocY = 0
 
         # Generate enemies in the room
         room.enemyGen(enemy, room.roomPic)
@@ -78,10 +80,82 @@ class room:
                 enemyLocation.append(enemyY)
         return enemyLocation
     
+    #Makes the player move accross the room/board
+    def playerMove(room, player, playerLocX, playerLocY):
+        chose = False
+        print('x:', playerLocX)
+        print('y:', playerLocY)
+        while not chose:
+            direction = input('Which way would you like to move.\nPress w to move up, d to move right, s to move down, and a to move left ')
 
-# self1 = playa.player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
+            if direction == 'w':
+                if not playerLocY - 1 == -1:
+                    previousLocY = playerLocY
+                    previousLocX = playerLocX
+                    playerLocY -= 1
+                    chose = True
+                else:
+                    print("You can't move in this direction")
+
+            elif direction == 's':
+                if not playerLocY == 8:
+                    previousLocY = playerLocY
+                    previousLocX = playerLocX
+                    playerLocY += 1
+                    chose = True
+                else:
+                    print("You can't move in this direction")
+
+            elif direction == 'a':
+                if not playerLocX - 1 == -1:
+                    previousLocY = playerLocY
+                    previousLocX = playerLocX
+                    playerLocX -= 1
+                    chose = True
+                else:
+                    print("You can't move in this direction")
+
+            elif direction == 'd':
+                if not playerLocX == 7:
+                    previousLocY = playerLocY
+                    previousLocX = playerLocX
+                    playerLocY += 1
+                    chose = True
+                else:
+                    print("You can't move in this direction")
+
+            else:
+                print("You can't chose that option")
+
+        #Player is able to and has moved in that direction
+        print('x:', playerLocX)
+        print('y:', playerLocY)
+        return playerLocX, playerLocY, previousLocX, previousLocY
+    
+    def boardMove(room, player, playerLocX, playerLocY, previousLocX, previousLocY):
+        print('x:', playerLocX)
+        print('y:', playerLocY)
+        room.roomPic[previousLocX][previousLocY] = ' _ '
+        room.roomPic[playerLocX][playerLocY] = player.playerLook()
+        for row in room.roomPic:
+            for item in row:
+                if isinstance(item, str):
+                    print(item, end=' _ ')
+                else:
+                    print(item.rp, end=' ')  # or whatever attribute you want to display
+            print()
+    
+self1 = playa.player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
 # item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
 # sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start", False)
 # enemy1 = bigboypants.enemy1("Eldredge Dragon", 10, 300)
-# room1 = room("Plain", 90, 7, 8, 4, room.roomGen)
+room1 = room("Plain", 90, 7, 8, 4)
 # room.roomGen(room1, self1, sword, item, enemy1,)
+x = 0
+y = 0
+while True:
+    print(x)
+    print(y)
+    room.boardMove(room1, self1, room.playerMove(room1, self1, x, y))
+    print(x)
+    print(y)
