@@ -37,16 +37,22 @@ class room:
         print("The o will represent you and the x represents the enemy. Move around to find the hidden items")
 
         # Create a 2D array for the room layout
-        room.roomPic = np.full((room.height, room.length), "_ ")
+        room.roomPic = [[' ']*10 for i in range(8)]
 
         # Place the player in the room
-        room.roomPic[0, 0] = player.playerLook()
+        room.roomPic[0][0] = player.playerLook()
 
         # Generate enemies in the room
         room.enemyGen(enemy, room.roomPic)
 
         # Print the room layout
-        print('\n'.join([' '.join(row) for row in room.roomPic]))
+        for row in room.roomPic:
+            for item in row:
+                if isinstance(item, str):
+                    print(item, end='_ ')
+                else:
+                    print(item.rp, end=' ')  # or whatever attribute you want to display
+            print()
 
         return room.roomPic
 
@@ -64,7 +70,7 @@ class room:
                 enemyY = randint(0, room.height-1)
                 # Ensure the enemy is not placed on the player's location
                 if not enemyX == 0 and not enemyY == 0:
-                    room.roomPic[enemyX, enemyY] = enemy.enemyLook()
+                    room.roomPic[enemyX][enemyY] = enemy.enemyLook()
                     found = True
                 # Add the enemy's location to the list
                 enemyLocation.append(enemyX)

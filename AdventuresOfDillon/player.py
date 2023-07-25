@@ -341,8 +341,8 @@ class player:
 # Example usage of the player class
 self1 = player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
 item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
-# thing = self1.sortItem(item, allItems, generateItems, inventory)
-# print(thing)
-#self1.inventory(item)
+#thing = self1.sortItem(item, allItems, generateItems, inventory)
+#print(thing)
+self1.inventory(item)
 
         
