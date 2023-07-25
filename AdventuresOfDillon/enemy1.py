@@ -1,16 +1,22 @@
 from random import randint
 import math as m
 
+# Define the enemy class
 class enemy1:
+    # Enemy class constructor
     def __init__(enemy, name, damage, health):
         enemy.name = name
         enemy.damage = damage
         enemy.health = health
 
+    # Define string representation of enemy
     def __str__(enemy):
         return f"Name: {enemy.name}, Damage: {enemy.damage}, Health: {enemy.health}"
     
+    # Define a blocking game for the enemy
     def blockGame(enemy):
+        # Randomly select a number and get player's guess
+        # The player or enemy closer to the number wins
         chose = False
         ans = randint(1, 100)
         enemyAns = randint(1, 100)
@@ -42,9 +48,10 @@ class enemy1:
                 return winner
 
 
-        
+    # Define enemy's attack behavior
     def enemyAttack(enemy, playerHealth):
-        #Enemy has normal + super attack (Has chance to one shot player)
+        # Enemy can perform a normal attack or a special attack
+        # The special attack has a chance to one-shot the player
         specialAttack = 100
         normalAttack = 30
         specialAttackPerc = randint(1, 100)
@@ -68,6 +75,6 @@ class enemy1:
 
         return playerHealth
     
-
+    # Define a method to visualize the enemy
     def enemyLook(enemy):
         return "x "

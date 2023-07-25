@@ -1,3 +1,4 @@
+# Import necessary libraries and modules
 import locations as laca
 import player as playa
 import enemy1 as bigboypants
@@ -6,18 +7,18 @@ import numpy as np
 import items as ight
 from random import randint
 
+# Function to generate items for the room
 def generateItems(room, player, weapons, items, enemyLocation, roomPic, enemy, allItems):
+    # Loop over the enemy locations
     for i in range(len(enemyLocation)):
-        for j in range(2):
-            #Range 2 for each coordinate
+        for j in range(2): #Range 2 for each coordinate
             if j == 1:
-                #x coordinate
-                enemyX = enemyLocation[j]
+                enemyX = enemyLocation[j] #x coordinate
             else:
-                #y coordinate
-                enemyY = enemyLocation[j]
+                enemyY = enemyLocation[j] #y coordinate
+
+        # Check if the enemy is still there
         if roomPic[enemyX][enemyY] == enemy.enemyLook():
-            #Enemy still there
             break
         else:
             #Enemy not there anymore

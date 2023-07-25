@@ -2,7 +2,9 @@ from random import randint
 import numpy as np
 import items as ight
 
+# The Player class represents a player in the game with certain attributes and methods.
 class player:
+    # The __init__ method initializes the player with certain attributes like class, ability, speed, damage, weapon, health, and location.
     def __init__(self, Class, ability, speed, damage, weapon, health, location):
         self.Class = Class
         self.ability = ability
@@ -12,10 +14,11 @@ class player:
         self.health = health
         self.location = location
 
-
+    # The __str__ method provides a string representation of the player object.
     def __str__(self):
         return f"Class: {self.Class}, Ability: {self.ability}, Speed: {self.speed}, Damage: {self.damage}, Weapon: {self.weapon}, Health: {self.health}, Location: {self.location}"
     
+    # The specialMove method defines the special moves that can be performed by the player based on their class.
     def specialMove(self, enemyHealth, specialAttack):
         fireDamage = 5
 
@@ -27,6 +30,8 @@ class player:
             enemyHealth -= fireDamage
             return 1
 
+    ## The attackMath method calculates the damage dealt to the enemy based on the player's class, 
+    # their speed, and whether a special attack or double attack was made.
     def attackMath(self, enemy1Health, specialAttack):
     #Double attack = Speed x 2
     #Special attack = 35 without double attack happening
@@ -117,13 +122,12 @@ class player:
 
         return enemy1Health
     
+    # Define a method to visualize the player
     def playerLook(self):
-
         return "o "
 
 
-    # def equip(self):
-
+    # handles the player's action of picking up an item
     def pickUp(self, generateItems, allItems):
         chose = False
         correct = False
@@ -214,6 +218,7 @@ class player:
                 print('This will put the food your hotbar')
                 return 5
 
+    # sorts the items in the player's inventory
     def sortItem(self, items, allItems, generateItems, inventory):
         space = False
         correct = False
@@ -307,7 +312,7 @@ class player:
         
         return 1
                     
-
+    # handles the player's inventory, including displaying it and adding items to it.
     def inventory(self, item, allItems, generateItems):
         #Need to make a 2d array
         print("Row 1 is for your hotbar")
@@ -333,6 +338,7 @@ class player:
         #print(inventory[1][1].protection)
         return inventory
 
+# Example usage of the player class
 self1 = player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
 item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
 # thing = self1.sortItem(item, allItems, generateItems, inventory)
