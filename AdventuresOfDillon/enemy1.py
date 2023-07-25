@@ -66,7 +66,7 @@ class enemy1:
             print("You were hit by the enemy's attack for", normalAttack, "damage")
             playerHealth-=normalAttack
         
-        if playerHealth <= 0:
+        if playerHealth <= 0: 
             print("You were killed. GG")
             playerHealth = 0
 

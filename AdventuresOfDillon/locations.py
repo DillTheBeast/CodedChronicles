@@ -27,14 +27,14 @@ class room:
         room.height = height  # Height of the room (rows in the grid)
         room.length = length  # Length of the room (columns in the grid)
         room.enemyCount = enemyCount  # Number of enemies in the room
-        room.roomPic = roomPic  # 2D array representing the room
+        room.roomPic = [[' ']*room.length for i in range(room.height)]  # 2D array representing the room
 
     # Method to print out the room's details in a friendly format
     def __str__(room):
         return f"Name: {room.name}, Temperature: {room.temp}, Height: {room.height}, Length: {room.length}, Enemy Counter: {room.enemyCount}"
 
     # Method to generate the room's layout
-    def roomGen(room, player, weapons, items, enemy):
+    def roomGen(room, player, weapons, enemy):
         print("The o will represent you and the x represents the enemy. Move around to find the hidden items")
 
         # Create an array for the room layout
@@ -69,8 +69,6 @@ class room:
                 # Randomly select a location for the enemy
                 enemyX = randint(0, room.length-2)
                 enemyY = randint(0, room.height-1)
-                print(enemyX)
-                print(enemyY)
                 # Ensure the enemy is not placed on the player's location
                 if not enemyX == 0 and not enemyY == 0:
                     room.roomPic[enemyX][enemyY] = enemy.enemyLook()

@@ -100,9 +100,9 @@ while Lost == False:
 
         # Check if player is defeated
         if player.health <= 0:
+            quit()
             Lost = True
             answer1 = True
-            break
         else:
             answer2 = False
 
@@ -116,11 +116,13 @@ while Lost == False:
         if location1 == 1:
             # Player chooses to enter the beach
             print("Good choice. You will now enter the beach.")
-            room1 = laca.room("Beach room 1", 150, 7, 7, 4, laca.roomGen())
+            room1 = laca.room("Beach room 1", 150, 7, 7, 4)
+            room1.roomGen(player, sword, enemy1) 
+            quit()
             choseLocation1 = True
         elif location1 == 2:
             # Player chooses to skip to the next boss
             print("Ok. Sending you to the boss room")
             choseLocation1 = True
         else:
-            print("That is not an option.")
+            print("That is not an option.")   
