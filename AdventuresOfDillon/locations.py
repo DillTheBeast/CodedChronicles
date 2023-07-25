@@ -21,7 +21,7 @@ class location:
 # Define the room class
 class room:
     # Initialize the room with various attributes
-    def __init__(room, name, temp, height, length, enemyCount, roomPic):
+    def __init__(room, name, temp, height, length, enemyCount):
         room.name = name  # Name of the room
         room.temp = temp  # Temperature of the room
         room.height = height  # Height of the room (rows in the grid)
@@ -37,7 +37,7 @@ class room:
     def roomGen(room, player, weapons, items, enemy):
         print("The o will represent you and the x represents the enemy. Move around to find the hidden items")
 
-        # Create a 2D array for the room layout
+        # Create an array for the room layout
         room.roomPic = [[' ']*room.length for i in range(room.height)]
 
         # Place the player in the room
@@ -81,9 +81,9 @@ class room:
         return enemyLocation
     
 
-self1 = playa.player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
-item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
-sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start", False)
-enemy1 = bigboypants.enemy1("Eldredge Dragon", 10, 300)
-room1 = room("Plain", 90, 7, 8, 4, room.roomGen)
-room.roomGen(room1, self1, sword, item, enemy1,)
+# self1 = playa.player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
+# item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
+# sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start", False)
+# enemy1 = bigboypants.enemy1("Eldredge Dragon", 10, 300)
+# room1 = room("Plain", 90, 7, 8, 4, room.roomGen)
+# room.roomGen(room1, self1, sword, item, enemy1,)

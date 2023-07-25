@@ -25,14 +25,28 @@ while Lost == False:
 
     # Display class options to the user
     print('Welcome to the Adventures of Dillon. First we need you to pick a class.')
-    print('The classes are Berserk, Mage, Rogue, and Archer.')
+    print('The classes are Berserk: Where you get a sword that does 30 damage, 5 speed, have starter health of 160, and an ability that lets you deal 2x damage for 3 turns.')
+    print('Mage: Where you get a staff that does 25 damage, 10 speed, have starter health of 140, and an ability that lets you set the enemy on fire, dealing 5 damage until either them or you are dead.')
+    print('Rogue: Where you get a dagger that does 15 damage, 45 speed, have starter health of 130, and an ability that lets you dodge the enemy attacks')
+    print('Archer: Where you get a bow that does 20 damage, 8 speed, have starter health of 150, and an ability that lets you shot 2 arrows at once with your bow fully charged back')
 
     # Class selection loop
     while choseClass == False:
         classInt = int(input('So what will it be. 1 for Berserk, 2 for Mage, 3 for rogue, or 4 for archer '))
         if classInt in [1, 2, 3, 4]:
             # Create player object based on user's class choice
-            player = playa.player(classInt)
+            if classInt == 1:
+                #Chose Berserk
+                player = playa.player("Berserk", "GO BERSERK", 5, 30, sword, 160, None)
+            elif classInt == 2:
+                #Chose Mage
+                player = playa.player("Mage", "Lengthy Fire", 10, 25, sword, 140, None)
+            elif classInt == 3:
+                #Chose Rogue
+                player = playa.player("Rogue", "Attack dodge", 45, 15, sword, 130, None)
+            else:
+                #Chose archer
+                player = playa.player("Archer", "Double shot", 20, 8, sword, 150, None)
             choseClass = True
         else:
             print("That is not an option.")
@@ -102,7 +116,7 @@ while Lost == False:
         if location1 == 1:
             # Player chooses to enter the beach
             print("Good choice. You will now enter the beach.")
-            room1 = laca.room("Beach room 1", 150, 7, 7)
+            room1 = laca.room("Beach room 1", 150, 7, 7, 4, laca.roomGen())
             choseLocation1 = True
         elif location1 == 2:
             # Player chooses to skip to the next boss
