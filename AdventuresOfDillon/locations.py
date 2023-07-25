@@ -4,6 +4,7 @@ import numpy as np
 import player as playa
 import enemy1 as bigboypants
 import weapons as wepawn
+import items as ight
 
 # Define the location class
 class location:
@@ -37,7 +38,7 @@ class room:
         print("The o will represent you and the x represents the enemy. Move around to find the hidden items")
 
         # Create a 2D array for the room layout
-        room.roomPic = [[' ']*10 for i in range(8)]
+        room.roomPic = [[' ']*room.length for i in range(room.height)]
 
         # Place the player in the room
         room.roomPic[0][0] = player.playerLook()
@@ -49,7 +50,7 @@ class room:
         for row in room.roomPic:
             for item in row:
                 if isinstance(item, str):
-                    print(item, end='_ ')
+                    print(item, end=' _ ')
                 else:
                     print(item.rp, end=' ')  # or whatever attribute you want to display
             print()
@@ -66,8 +67,10 @@ class room:
             found = False
             while found == False:
                 # Randomly select a location for the enemy
-                enemyX = randint(0, room.length-1)
+                enemyX = randint(0, room.length-2)
                 enemyY = randint(0, room.height-1)
+                print(enemyX)
+                print(enemyY)
                 # Ensure the enemy is not placed on the player's location
                 if not enemyX == 0 and not enemyY == 0:
                     room.roomPic[enemyX][enemyY] = enemy.enemyLook()
@@ -76,3 +79,11 @@ class room:
                 enemyLocation.append(enemyX)
                 enemyLocation.append(enemyY)
         return enemyLocation
+    
+
+self1 = playa.player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
+item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
+sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start", False)
+enemy1 = bigboypants.enemy1("Eldredge Dragon", 10, 300)
+room1 = room("Plain", 90, 7, 8, 4, room.roomGen)
+room.roomGen(room1, self1, sword, item, enemy1,)

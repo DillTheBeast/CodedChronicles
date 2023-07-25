@@ -77,4 +77,4 @@ class enemy1:
     
     # Define a method to visualize the enemy
     def enemyLook(enemy):
-        return "x "
+        return " x "
