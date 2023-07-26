@@ -5,7 +5,7 @@ import items as ight
 # The Player class represents a player in the game with certain attributes and methods.
 class player:
     # The __init__ method initializes the player with certain attributes like class, ability, speed, damage, weapon, health, and location.
-    def __init__(self, Class, ability, speed, damage, weapon, health, location):
+    def __init__(self, Class, ability, speed, damage, weapon, health, location, x, y, px, py):
         self.Class = Class
         self.ability = ability
         self.speed = speed
@@ -13,6 +13,10 @@ class player:
         self.weapon = weapon
         self.health = health
         self.location = location
+        self.x = x
+        self.y = y
+        self.px = px
+        self.py = py
 
     # The __str__ method provides a string representation of the player object.
     def __str__(self):
@@ -339,7 +343,7 @@ class player:
         return inventory
 
 # Example usage of the player class
-self1 = player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None)
+self1 = player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None, 0, 0, 0, 0)
 item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
 # thing = self1.sortItem(item, allItems, generateItems, inventory)
 # print(thing)
