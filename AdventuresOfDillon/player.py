@@ -128,8 +128,7 @@ class player:
     
     # Define a method to visualize the player
     def playerLook(self):
-        #return "🟢"
-        return "*"
+        return "🔵"
 
 
     # handles the player's action of picking up an item

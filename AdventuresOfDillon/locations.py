@@ -91,7 +91,7 @@ class room:
     def playerMove(room, player):
         for i in range(room.length-2):
             for j in range(room.height-1):
-                if room.roomPic[i][j] == "🟢":
+                if room.roomPic[i][j] == "🔵":
                     i = player.x
                     j = player.y
         chose = False
@@ -139,7 +139,8 @@ class room:
 
     
     def boardMove(room, player, playerLocX, playerLocY):
-        #room.roomPic[previousLocX][previousLocY] = ' _ '
+        room.roomPic[player.px][player.py] = '⚪'
+        del room.roomPic[playerLocX][playerLocY]
         room.roomPic[playerLocX][playerLocY] = player.playerLook()
         for row in room.roomPic:
             for item in row:
