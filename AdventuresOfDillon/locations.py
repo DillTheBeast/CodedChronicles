@@ -89,8 +89,8 @@ class room:
     
     #Makes the player move accross the room/board
     def playerMove(room, player):
-        for i in range(room.length-2):
-            for j in range(room.height-1):
+        for i in range(room.length):
+            for j in range(room.height):
                 if room.roomPic[i][j] == "🔵":
                     i = player.x
                     j = player.y
