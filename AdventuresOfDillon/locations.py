@@ -27,7 +27,7 @@ class room:
         room.height = height  # Height of the room (rows in the grid)
         room.length = length  # Length of the room (columns in the grid)
         room.enemyCount = enemyCount  # Number of enemies in the room
-        room.roomPic = [[' ']*room.length for i in range(room.height)]  # 2D array representing the room
+        room.roomPic = [['']*room.length for i in range(room.height)]  # 2D array representing the room
 
     # Method to print out the room's details in a friendly format
     def __str__(room):
@@ -35,10 +35,10 @@ class room:
 
     # Method to generate the room's layout
     def roomGen(room, player, weapons, enemy):
-        print("The o will represent you and the x represents the enemy. Move around to find the hidden items")
+        print("The green circle will represent you and the red circle represents the enemies. Move around to find the hidden items")
 
         # Create an array for the room layout
-        room.roomPic = [[' ']*room.length for i in range(room.height)]
+        room.roomPic = [['']*room.length for i in range(room.height)]
 
         # Place the player in the room
         room.roomPic[0][0] = player.playerLook()
@@ -46,6 +46,8 @@ class room:
         playerLocY = 0
         player.x = 0
         player.y = 0
+        player.px = 0
+        player.py = 0
 
         # Generate enemies in the room
         room.enemyGen(enemy, room.roomPic)
@@ -54,9 +56,9 @@ class room:
         for row in room.roomPic:
             for item in row:
                 if isinstance(item, str):
-                    print(item, end=' _ ')
+                    print(item, end='⚪')
                 else:
-                    print(item.rp, end=' ')  # or whatever attribute you want to display
+                    print(item.rp, end='')  # or whatever attribute you want to display
             print()
 
         return room.roomPic
@@ -83,50 +85,48 @@ class room:
         return enemyLocation
     
     #Makes the player move accross the room/board
-    def playerMove(room, player, playerLocX, playerLocY):
-        playerLocX = 0
-        playerLocY = 0
+    def playerMove(room, player):
         for i in range(room.length-2):
             for j in range(room.height-1):
-                if room.roomPic[i][j] == " o ":
-                    i = playerLocX
-                    j = playerLocY
+                if room.roomPic[i][j] == "🟢":
+                    i = player.x
+                    j = player.y
         chose = False
         while not chose:
             direction = input('Which way would you like to move.\nPress w to move up, d to move right, s to move down, and a to move left ')
 
             if direction == 'w':
-                if not playerLocY - 1 == -1:
-                    previousLocY = playerLocY
-                    previousLocX = playerLocX
-                    playerLocY -= 1
-                    chose = True
-                else:
-                    print("You can't move in this direction")
-
-            elif direction == 's':
-                if not playerLocY == 8:
-                    previousLocY = playerLocY
-                    previousLocX = playerLocX
-                    playerLocY += 1
-                    chose = True
-                else:
-                    print("You can't move in this direction")
-
-            elif direction == 'a':
-                if not playerLocX - 1 == -1:
-                    previousLocY = playerLocY
-                    previousLocX = playerLocX
-                    playerLocX -= 1
+                if not player.y - 1 == -1:
+                    player.py = player.y
+                    player.px = player.x
+                    player.y -= 1
                     chose = True
                 else:
                     print("You can't move in this direction")
 
             elif direction == 'd':
-                if not playerLocX == 7:
-                    previousLocY = playerLocY
-                    previousLocX = playerLocX
-                    playerLocY += 1
+                if not player.y == 8:
+                    player.py = player.y
+                    player.px = player.x
+                    player.y += 1
+                    chose = True
+                else:
+                    print("You can't move in this direction")
+
+            elif direction == 'a':
+                if not player.x - 1 == -1:
+                    player.py = player.y
+                    player.px = player.x
+                    player.x -= 1
+                    chose = True
+                else:
+                    print("You can't move in this direction")
+
+            elif direction == 's':
+                if not player.x == 7:
+                    player.py = player.y
+                    player.px = player.x
+                    player.x += 1
                     chose = True
                 else:
                     print("You can't move in this direction")
@@ -134,37 +134,29 @@ class room:
             else:
                 print("You can't chose that option")
 
-        #Player is able to and has moved in that direction
-        print('x:', playerLocX)
-        print('y:', playerLocY)
-        return playerLocX, playerLocY
     
-    def boardMove(room, player, playerLocX, playerLocY, previousLocX, previousLocY):
-        print('x:', playerLocX)
-        print('y:', playerLocY)
-        room.roomPic[previousLocX][previousLocY] = ' _ '
+    def boardMove(room, player, playerLocX, playerLocY):
+        #room.roomPic[previousLocX][previousLocY] = ' _ '
         room.roomPic[playerLocX][playerLocY] = player.playerLook()
         for row in room.roomPic:
             for item in row:
                 if isinstance(item, str):
-                    print(item, end=' _ ')
+                    print(item, end='⚪')
                 else:
-                    print(item.rp, end=' ')  # or whatever attribute you want to display
+                    print(item.rp, end='')  # or whatever attribute you want to display
             print()
     
 self1 = playa.player("Berserk", "GO BERSERK", 5, 30, "thing", 160, None, 0, 0, 0, 0)
-# item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
-# sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start", False)
-# enemy1 = bigboypants.enemy1("Eldredge Dragon", 10, 300)
+item = ight.item("Gold Helmet", "Protection", 1, 100, 0, 40, 0, False, "GH")
+sword = wepawn.weapon("Starter Sword", "Sword", 7, 100, None, False, "Starter", "Start", False)
+enemy1 = bigboypants.enemy1("Eldredge Dragon", 10, 300)
 room1 = room("Plain", 90, 7, 8, 4)
-# room.roomGen(room1, self1, sword, item, enemy1,)
+room.roomGen(room1, self1, sword, enemy1)
 
 while True:
     #room.boardMove(room1, self1, room.playerMove(room1, self1, playerLocX, playerLocY))
-    room.playerMove(room1, self1, self1.x, self1.y)
-    print('x1', self1.x)
-    print('y1', self1.y)
-    room.boardMove(room1, self1, self1.x, self1.y, self1.px, self1.py)
+    room.playerMove(room1, self1)
+    room.boardMove(room1, self1, self1.x, self1.y)
 
     #room, player, playerLocX, playerLocY, previousLocX, previousLocY
 
