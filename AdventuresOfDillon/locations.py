@@ -137,7 +137,7 @@ class room:
         #Player is able to and has moved in that direction
         print('x:', playerLocX)
         print('y:', playerLocY)
-        return playerLocX, playerLocY, previousLocX, previousLocY
+        return playerLocX, playerLocY
     
     def boardMove(room, player, playerLocX, playerLocY, previousLocX, previousLocY):
         print('x:', playerLocX)
