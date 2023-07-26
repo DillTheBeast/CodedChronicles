@@ -42,7 +42,6 @@ class room:
         room.roomPic = [['']*room.length for i in range(room.height)]
 
         # Place the player in the room
-        del room.roomPic[0][0]
         room.roomPic[0][0] = player.playerLook()
         playerLocX = 0
         playerLocY = 0
@@ -75,11 +74,10 @@ class room:
             found = False
             while found == False:
                 # Randomly select a location for the enemy
-                enemyX = randint(0, room.length-2)
+                enemyX = randint(0, room.length-1)
                 enemyY = randint(0, room.height-1)
                 # Ensure the enemy is not placed on the player's location
                 if not enemyX == 0 and not enemyY == 0:
-                    del room.roomPic[enemyX][enemyY]
                     room.roomPic[enemyX][enemyY] = enemy.enemyLook()
                     found = True
                 # Add the enemy's location to the list
@@ -87,11 +85,11 @@ class room:
                 enemyLocation.append(enemyY)
         return enemyLocation
     
-    #Makes the player move accross the room/board
+    #Makes the player move across the room/board
     def playerMove(room, player):
         for i in range(room.length):
             for j in range(room.height):
-                if room.roomPic[i][j] == "🔵":
+                if room.roomPic[i][j] == '🔵':
                     i = player.x
                     j = player.y
         chose = False
@@ -99,7 +97,7 @@ class room:
             direction = input('Which way would you like to move.\nPress w to move up, d to move right, s to move down, and a to move left ')
 
             if direction == 'w':
-                if not player.y - 1 == -1:
+                if player.y - 1 >= 0:
                     player.py = player.y
                     player.px = player.x
                     player.y -= 1
@@ -108,7 +106,7 @@ class room:
                     print("You can't move in this direction")
 
             elif direction == 'd':
-                if not player.y == 8:
+                if player.y < room.length - 1:
                     player.py = player.y
                     player.px = player.x
                     player.y += 1
@@ -117,7 +115,7 @@ class room:
                     print("You can't move in this direction")
 
             elif direction == 'a':
-                if not player.x - 1 == -1:
+                if player.x - 1 >= 0:
                     player.py = player.y
                     player.px = player.x
                     player.x -= 1
@@ -126,7 +124,7 @@ class room:
                     print("You can't move in this direction")
 
             elif direction == 's':
-                if not player.x == 7:
+                if player.x < room.height - 1:
                     player.py = player.y
                     player.px = player.x
                     player.x += 1
@@ -140,7 +138,6 @@ class room:
     
     def boardMove(room, player, playerLocX, playerLocY):
         room.roomPic[player.px][player.py] = '⚪'
-        del room.roomPic[playerLocX][playerLocY]
         room.roomPic[playerLocX][playerLocY] = player.playerLook()
         for row in room.roomPic:
             for item in row:
@@ -158,9 +155,5 @@ room1 = room("Plain", 90, 7, 8, 4)
 room.roomGen(room1, self1, sword, enemy1)
 
 while True:
-    #room.boardMove(room1, self1, room.playerMove(room1, self1, playerLocX, playerLocY))
     room.playerMove(room1, self1)
     room.boardMove(room1, self1, self1.x, self1.y)
-
-    #room, player, playerLocX, playerLocY, previousLocX, previousLocY
-
