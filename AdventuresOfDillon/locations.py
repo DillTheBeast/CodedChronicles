@@ -35,12 +35,14 @@ class room:
 
     # Method to generate the room's layout
     def roomGen(room, player, weapons, enemy):
+        thing = False
         print("The green circle will represent you and the red circle represents the enemies. Move around to find the hidden items")
 
         # Create an array for the room layout
         room.roomPic = [['']*room.length for i in range(room.height)]
 
         # Place the player in the room
+        del room.roomPic[0][0]
         room.roomPic[0][0] = player.playerLook()
         playerLocX = 0
         playerLocY = 0
@@ -77,6 +79,7 @@ class room:
                 enemyY = randint(0, room.height-1)
                 # Ensure the enemy is not placed on the player's location
                 if not enemyX == 0 and not enemyY == 0:
+                    del room.roomPic[enemyX][enemyY]
                     room.roomPic[enemyX][enemyY] = enemy.enemyLook()
                     found = True
                 # Add the enemy's location to the list
